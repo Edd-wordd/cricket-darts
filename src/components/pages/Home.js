@@ -2,96 +2,6 @@ import React from "react";
 import Dartboard from "../../img/dartboard.png";
 import { Link } from "react-router-dom";
 
-// export default function Home(props) {
-//    return (
-//   <div className="body">
-//      <div className="container">
-//         <div className="row ml-5">
-//            <div className="col-6b offset-3">
-//               <h1 className="">DARTS TOTAL</h1>
-//               <h1 className="text-center mb-5">301</h1>
-//            </div>
-//         </div>
-//         {/* dartboard and name inputs start*/}
-//         <div className="row mb-3">
-//            <div className="col">
-//               <input
-//                  type="text"
-//                  id="first-player"
-//                  placeholder="First Player"
-//                  className="ml-5"
-//               ></input>
-//               <button className="btn-danger">PLAY</button>
-
-//               <img
-//                  className="dartboard mr-5"
-//                  src={Dartboard}
-//                  alt="dartboard"
-//               ></img>
-//            </div>
-//            <div className="col">
-//               <input
-//                  type="text"
-//                  id="second-player"
-//                  placeholder="Second Player"
-//                  className="ml-5"
-//               ></input>
-//               <button className="btn-danger">PLAY</button>
-
-//               <img
-//                  className="dartboard"
-//                  src={Dartboard}
-//                  alt="dartboard"
-//               ></img>
-//            </div>
-//         </div>
-//         {/* dartboard and name inputs end */}
-//         {/* start of dart inputs */}
-//         <div className="row mb-3">
-//            <div className="col">
-//               <input
-//                  type="text"
-//                  placeholder="First Player Darts"
-//                  className="ml-5"
-//               ></input>
-//               <button className="btn-danger">Submit</button>
-//            </div>
-//            <div className="col">
-//               <input
-//                  type="text"
-//                  placeholder="Second Player Darts"
-//                  className="ml-5"
-//               ></input>
-//               <button className="btn-danger">Submit</button>
-//            </div>
-//         </div>
-//         {/* end of dart inputs */}
-//         {/* start af player totals */}
-//         <div className="row mb-5">
-//            <div className="col">
-//               <p id="player-one-total" className="ml-5">
-//                  301
-//               </p>
-//            </div>
-
-//            <div className="col">
-//               <p id="player-two-total" className="ml-5">
-//                  301
-//               </p>
-//            </div>
-//         </div>
-//         {/* end of player totals */}
-
-//         <div className="row">
-//            <div className="col-6 offset-3">
-//               <Link to="/losers-drink" className="btn btn-danger btn-lg ">
-//                  LETS GET THAT LOSER A DRINK!
-//               </Link>
-//            </div>
-//         </div>
-//      </div>
-//   </div> // End of Body div
-//    );
 export default class Home extends React.Component {
    constructor(props) {
       super(props);
@@ -102,10 +12,39 @@ export default class Home extends React.Component {
          playerTwoTotal: 301,
       };
    }
-   getPlayerScores() {
-      console.log("clicked");
-      const points = document.getElementById("player-one-dart-input").value;
-      console.log(points);
+   getPlayerOneScores() {
+      console.log("scores clicked");
+      const playerOnePoints = document.getElementById("player-one-dart-input")
+         .value;
+      //  check to see what the input is coming in as
+      console.log(typeof playerOnePoints);
+      // convert string into a number
+      const parsedPlayerOnePoints = parseInt(playerOnePoints);
+      // make sure string in converted into a number
+      console.log(typeof parsedPlayerOnePoints);
+      let playerOneShots = this.state.playerOneTotal - parsedPlayerOnePoints;
+      console.log(playerOneShots);
+      const updatedPlayerOneScore = this.setState({
+         playerOneTotal: playerOneShots,
+      });
+      return updatedPlayerOneScore;
+   }
+   getPlayerTwoScores() {
+      console.log("scores clicked");
+      const playerTwoPoints = document.getElementById("player-two-dart-input")
+         .value;
+      //  check to see what the input is coming in as
+      console.log("playerTwo", typeof playerTwoPoints);
+      // convert string into a number
+      const parsedPlayerTwoPoints = parseInt(playerTwoPoints);
+      // make sure string in converted into a number
+      console.log(typeof parsedPlayerTwoPoints);
+      let playerTwoShots = this.state.playerTwoTotal - parsedPlayerTwoPoints;
+      console.log(playerTwoShots);
+      const updatedPlayerTwoScore = this.setState({
+         playerTwoTotal: playerTwoShots,
+      });
+      return updatedPlayerTwoScore;
    }
 
    getPlayerNames() {
@@ -198,7 +137,7 @@ export default class Home extends React.Component {
                         className="btn-danger"
                         id="player-one-darts-submit"
                         onClick={() => {
-                           this.getPlayerScores();
+                           this.getPlayerOneScores();
                         }}
                      >
                         Submit
@@ -214,6 +153,9 @@ export default class Home extends React.Component {
                      <button
                         className="btn-danger"
                         id="player-two-darts-submit"
+                        onClick={() => {
+                           this.getPlayerTwoScores();
+                        }}
                      >
                         Submit
                      </button>
