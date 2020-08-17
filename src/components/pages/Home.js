@@ -62,7 +62,7 @@ export default class Home extends React.Component {
          <div className="body">
             <div className="container">
                <div className="row ml-5">
-                  <div className="col-6b offset-3">
+                  <div className="col-6b offset-3 home-page-title">
                      <h1 className="">DARTS TOTAL</h1>
                      <h1 className="text-center mb-5">301</h1>
                   </div>
