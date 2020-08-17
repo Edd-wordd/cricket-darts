@@ -98,15 +98,17 @@ export default class Home extends React.Component {
       this.state = {
          playerOne: "",
          playerTwo: "",
+         playerOneTotal: 301,
+         playerTwoTotal: 301,
       };
    }
-   subtractedTotals() {
+   getPlayerScores() {
       console.log("clicked");
       const points = document.getElementById("player-one-dart-input").value;
       console.log(points);
    }
 
-   playerNames() {
+   getPlayerNames() {
       console.log("name clicked");
       const firstPlayer = document.getElementById("first-player").value;
       console.log(firstPlayer);
@@ -139,7 +141,7 @@ export default class Home extends React.Component {
                         className="btn-danger"
                         id="first-player-name"
                         onClick={() => {
-                           this.playerNames();
+                           this.getPlayerNames();
                         }}
                      >
                         PLAY
@@ -165,7 +167,7 @@ export default class Home extends React.Component {
                      <button
                         className="btn-danger"
                         onClick={() => {
-                           this.playerNames();
+                           this.getPlayerNames();
                         }}
                      >
                         PLAY
@@ -196,7 +198,7 @@ export default class Home extends React.Component {
                         className="btn-danger"
                         id="player-one-darts-submit"
                         onClick={() => {
-                           this.subtractedTotals();
+                           this.getPlayerScores();
                         }}
                      >
                         Submit
@@ -222,13 +224,13 @@ export default class Home extends React.Component {
                <div className="row mb-5">
                   <div className="col">
                      <p id="player-one-total" className="ml-5">
-                        301
+                        {this.state.playerOneTotal}
                      </p>
                   </div>
 
                   <div className="col">
                      <p id="player-two-total" className="ml-5">
-                        301
+                        {this.state.playerTwoTotal}
                      </p>
                   </div>
                </div>
