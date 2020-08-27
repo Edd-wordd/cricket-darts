@@ -12,15 +12,6 @@ export default class Home extends React.Component {
          playerTwoTotal: 301,
       };
    }
-   // we only need one of these
-   //  func(player, state)
-
-   // better handle the zero value on playerPoints
-   //       const playerOnePoints = document.getElementById("player-one-dart-input")
-   // .value;
-
-   // getPlayerScores(this.state.playerOneTotal, playerOneTotal)
-   // getPlayerScores(playerTwoTotal)
 
    validatePlayerScores(playerState) {
       let parsedPlayerPoints;
@@ -40,7 +31,7 @@ export default class Home extends React.Component {
 
       return newTotal;
    }
-   // this.updatePlayerOneScore(this.validatePlayerScores(this.state.playerOneTotal))
+
    updatePlayerOneScore(value) {
       this.setState({
          playerOneTotal: `${value}`,
@@ -51,46 +42,6 @@ export default class Home extends React.Component {
          playerTwoTotal: `${value}`,
       });
    }
-   // getPlayerOneScores() {
-   //    let parsedPlayerOnePoints;
-   //    console.log("scores clicked");
-   //    const playerOnePoints = document.getElementById("player-one-dart-input")
-   //       .value;
-   //    //  check to see what the input is coming in as
-   //    console.log(typeof playerOnePoints);
-   //    console.log(`points are: ${playerOnePoints}`);
-   //    // convert string into a number
-   //    if (playerOnePoints.length > 0) {
-   //       parsedPlayerOnePoints = parseInt(playerOnePoints);
-   //       // make sure string in converted into a number
-   //       console.log(typeof parsedPlayerOnePoints);
-   //       let playerOneShots = this.state.playerOneTotal - parsedPlayerOnePoints;
-   //       console.log(playerOneShots);
-   //       const updatedPlayerOneScore = this.setState({
-   //          playerOneTotal: playerOneShots,
-   //       });
-   //       return updatedPlayerOneScore;
-   //    }
-
-   //    return "something";
-   // }
-   // getPlayerTwoScores() {
-   //    console.log("scores clicked");
-   //    const playerTwoPoints = document.getElementById("player-two-dart-input")
-   //       .value;
-   //    //  check to see what the input is coming in as
-   //    console.log("playerTwo", typeof playerTwoPoints);
-   //    // convert string into a number
-   //    const parsedPlayerTwoPoints = parseInt(playerTwoPoints);
-   //    // make sure string in converted into a number
-   //    console.log(typeof parsedPlayerTwoPoints);
-   //    let playerTwoShots = this.state.playerTwoTotal - parsedPlayerTwoPoints;
-   //    console.log(playerTwoShots);
-   //    const updatedPlayerTwoScore = this.setState({
-   //       playerTwoTotal: playerTwoShots,
-   //    });
-   //    return updatedPlayerTwoScore;
-   // }
 
    getPlayerNames() {
       console.log("name clicked");
