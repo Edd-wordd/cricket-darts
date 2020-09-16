@@ -16,6 +16,7 @@ export default class Home extends React.Component {
    validatePlayerScores(playerState) {
       let parsedPlayerPoints;
       console.log("scores clicked");
+      ``;
       // need to grab second player darts
       // add error msg when inputing invalid entry in input field
       const playerPoints = document.getElementById("player-one-dart-input")
